@@ -9,12 +9,13 @@ def countPos(lst):
     count=0
     for i in lst:
         if i<=0:
-            count = 0
+            pass
         elif i>0:
             count=count+1
         elif len(lst)==0:
             count = 0
     return count
+# Q1 test
 print (countPos([1,3,5,-5,-3,-1]))
 num = countPos([6, 4, 2, 0])
 print (num)
@@ -24,16 +25,20 @@ print (countPos([]))
 
 # Question 2
 def censorNum(s):
-    for i in s:
-        if i in ('1234567890'):
-            for i in s:
-                temp=s.replace(i,'*')
-            print(temp)
-        elif(len(s)==0):
+    if(len(s)==0):
             pass
-        elif i not in ('1234567890'):
-            print(s)
-        
+    s1 = ''
+    for i in s:
+        if i in "1234567890":
+            i = '*'
+        s1 = s1 + i
+    return(s1)
+# Q2 test
+print (censorNum('1,2,3,blast off!'))
+print (censorNum("My favourite number is 17."))
+print (censorNum("This is a test. This is only a test."))
+print (censorNum(''))
+print (censorNum("12345"))
             
 # Question 3
 def apr(info):
