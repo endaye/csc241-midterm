@@ -39,37 +39,55 @@ print (censorNum("My favourite number is 17."))
 print (censorNum("This is a test. This is only a test."))
 print (censorNum(''))
 print (censorNum("12345"))
-            
+"""            
 # Question 3
 def apr(info):
-    apr.split(" ")
-    listG=['A','A+','A-','B','B+','B-','a','a+','a-','b','b+','b-']
-    listP=['C','C+','C-','c','c+','c-']
-    lsitF=['D','D+','D-','F','f','d+','d-','d']
-    for i in apr:
-        if apr[-2:] in listG:
-            for i in ('01234567890'):
-                print('Congratulations, you are doing well in',apr[:4],i,"!")
-        elif apr[-2:] in listP:
-            for i in ('01234567890'):  
-                print('You are passing',apr[:4],i,'.')
-        elif apr[-2:] in listF:
-            for i in ('01234567890'):  
-                print('You need to improve your performance in',apr[:4],i,'.')
-        else:
-            for i in ('01234567890'):  
-                print('An invalid grade for … was provided.',apr[:4],i,'.')
+    for i in range(len(info)):
+        if info[i] == ' ' and info[i+1] in '0123456789':
+            no = info[i+1]+info[i+2]+info[i+3]
+        if (info[-1:]=='A' or info[-1:]=='a' or info[-1:]=='B' or info[-1:]=='b' 
+            or info[-2:]=='A+' or info[-2:]=='a+' or info[-2:]=='A-' or info[-2:]=='a-'
+            or info[-2:]=='B+' or info[-2:]=='b+' or info[-2:]=='b-' or info[-2:]=='B-'):
+            print('Congratulations, you are doing well in',info[0:3],no+'!')
 
+        elif (info[-1:]=='C' or info[-1:]=='c' or info[-2:]=='C+' or info[-2:]=='c+' 
+            or info[-2:]=='C-' or info[-2:]=='c-'):
+            print('You are passing',info[0:3],no+'.')
+
+        elif(info[-1:]=='D' or info[-1:]=='d' or info[-1:]=='F' or info[-1:]=='f' 
+            or info[-2:]=='D+' or info[-2:]=='d+' or info[-2:]=='D-' or info[-2:]=='d-'):
+            print('You need to improve your performance in',info[0:3],no+'.')
+
+        else:
+            print('An invalid grade for',info[0:3],no,'was provided.')
+
+print(apr('CSC      241    A-'))
+print(apr("CSC  242    c"))
+print(apr("CSC     373       d+"))
+print(apr('WRD 104 B+'))
+print(apr('IT    130    f'))
+print(apr('CSC 241 E'))
+"""
 # Question 4
 def sentenceCount(fname):
     inf=open(fname,'r')
     con=inf.read()
     inf.close()
 
+    count = 0
+    if len(con) == 0 :
+        return (count) 
+    j = ''
     for i in con:
-        if i in( '.!?'):
-            p=con.split(".")
-            temp1=p.split("!")
-            temp2=temp1.split("?")
-            temp3=temp2.split("\n")
-        len(temp3)
+        if i in ('!?'):
+            count =  count + 1
+        elif j in ('.') and i in ('\n'):
+            count = count + 1
+        j = i
+    return (count)
+
+print (sentenceCount('csc241midterm/test1.txt'))
+num = sentenceCount('csc241midterm/test2.txt')
+print (num)
+print (sentenceCount('csc241midterm/empty.txt'))
+
