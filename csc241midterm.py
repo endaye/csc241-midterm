@@ -15,6 +15,12 @@ def countPos(lst):
         elif len(lst)==0:
             count = 0
     return count
+print (countPos([1,3,5,-5,-3,-1]))
+num = countPos([6, 4, 2, 0])
+print (num)
+print (countPos([3.1415, 2.178, -3.333, 17.159, 0.11]))
+print (countPos([-1, -2, -3]))
+print (countPos([]))
 
 # Question 2
 def censorNum(s):
